@@ -1,0 +1,27 @@
+# Keil build output
+Objects/
+Listings/
+
+*.axf
+*.hex
+*.map
+*.htm
+*.lnp
+*.tra
+*.o
+*.d
+*.crf
+*.dep
+*.lst
+*.bin
+
+# Keil temporary files
+*.bak
+*.uvguix
+*.uvguix.*
+*.uvgui.*
+
+# Windows
+Thumbs.db
+Desktop.ini
+.DS_Store
