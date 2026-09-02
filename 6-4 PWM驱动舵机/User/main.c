@@ -5,7 +5,7 @@
 #include "Key.h"
 
 uint8_t KeyNum;
-float Angle;
+float Angle =90;
 int main(void){
 	
 	OLED_Init();	
@@ -14,7 +14,7 @@ int main(void){
 	
 	OLED_ShowString(1,1,"Angle:");
 	
-	Servo_SetAngle(90);
+	Servo_SetAngle(Angle);
 
 	while(1)    
 	{           
