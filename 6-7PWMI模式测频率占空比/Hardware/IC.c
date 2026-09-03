@@ -30,7 +30,7 @@ void IC_Init(void)
 	TIM_ICInitStructure.TIM_ICPrescaler =  TIM_ICPSC_DIV1;
 	TIM_ICInitStructure.TIM_ICSelection =  TIM_ICSelection_DirectTI;
 	TIM_PWMIConfig(TIM3,&TIM_ICInitStructure);
-	
+	//之前是ICINIT
 	
 	TIM_SelectInputTrigger(TIM3,TIM_TS_TI1FP1);
 	TIM_SelectSlaveMode(TIM3,TIM_SlaveMode_Reset);

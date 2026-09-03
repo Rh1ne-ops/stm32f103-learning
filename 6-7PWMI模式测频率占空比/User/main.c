@@ -14,8 +14,8 @@ int main(void){
 	
 	OLED_ShowString(1,1,"Freq:00000Hz");
 	OLED_ShowString(2,1,"Duty:00%");
-	PWM_SetPrescaler(720-1);    //预频率freq=  72M/(PSc+1)/  100
-	PWM_SetCompare1(50);        //占空比 Duty =CCR/ARR(100)
+	PWM_SetPrescaler(7200-1);    //预频率freq=  72M/(PSc+1)/  100
+	PWM_SetCompare1(60);        //占空比 Duty =CCR/ARR(100)
 
 	while(1)    
 	{           
