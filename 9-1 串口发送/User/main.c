@@ -1,7 +1,7 @@
 #include "stm32f10x.h"                  // Device header
 #include "Delay.h"
 #include "OLED.h"
-#include "SERIAL.h"
+#include "Serial1.h"
 
 int main(void){
 	
@@ -20,7 +20,7 @@ int main(void){
 	sprintf(String,"\r\nNum3=%d",333);
 	Serial_SendString(String);
 	
-	Serial_Printf("\r\nNum4 =%d",444);
+	Serial_Printf("\r\nNum4=%d",444);
 	Serial_Printf("\r\n");
 	while(1)    
 	{           
