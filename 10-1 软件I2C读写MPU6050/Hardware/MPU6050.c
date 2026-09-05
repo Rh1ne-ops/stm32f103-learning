@@ -1,5 +1,5 @@
 #include "stm32f10x.h"                  // Device header
-#include "MyI2C.h"
+#include "MyI2C1.h"
 #include "MPU6050_Reg.h"
 #define MPU6050_ADDRESS   0xD0
 

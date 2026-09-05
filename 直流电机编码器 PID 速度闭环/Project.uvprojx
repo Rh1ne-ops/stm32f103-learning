@@ -703,49 +703,24 @@
               <FilePath>.\Hardware\OLED_Font.h</FilePath>
             </File>
             <File>
-              <FileName>MyI2C.c</FileName>
+              <FileName>PWM.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Hardware\MyI2C.c</FilePath>
+              <FilePath>.\Hardware\PWM.c</FilePath>
             </File>
             <File>
-              <FileName>MyI2C.h</FileName>
+              <FileName>PWM.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Hardware\MyI2C.h</FilePath>
+              <FilePath>.\Hardware\PWM.h</FilePath>
             </File>
             <File>
-              <FileName>MPU6050.c</FileName>
+              <FileName>Motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Hardware\MPU6050.c</FilePath>
+              <FilePath>.\Hardware\Motor.c</FilePath>
             </File>
             <File>
-              <FileName>MPU6050.h</FileName>
+              <FileName>Motor.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Hardware\MPU6050.h</FilePath>
-            </File>
-            <File>
-              <FileName>MPU6050_Reg.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\MPU6050_Reg.h</FilePath>
-            </File>
-            <File>
-              <FileName>MyI2C1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\MyI2C1.c</FilePath>
-            </File>
-            <File>
-              <FileName>MyI2C1.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\MyI2C1.h</FilePath>
-            </File>
-            <File>
-              <FileName>MPU60501.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\MPU60501.c</FilePath>
-            </File>
-            <File>
-              <FileName>MPU60501.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\MPU60501.h</FilePath>
+              <FilePath>.\Hardware\Motor.h</FilePath>
             </File>
           </Files>
         </Group>
