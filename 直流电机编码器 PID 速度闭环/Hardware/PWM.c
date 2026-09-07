@@ -9,7 +9,8 @@ void PWM_Init(void){
 	GPIO_InitStructure.GPIO_Pin	=  GPIO_Pin_2;
 	GPIO_InitStructure.GPIO_Speed	=GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA,&GPIO_InitStructure);
-
+	TIM_InternalClockConfig(TIM2);
+	
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
 	TIM_TimeBaseInitStructure.TIM_Period=100-1;
 	TIM_TimeBaseInitStructure.TIM_Prescaler=72-1;
