@@ -1,7 +1,26 @@
 #include "stm32f10x.h"                  // Device header
 
-	float kp =0.25f;
-	float ki =0.05f;
+int16_t Speed_Filter(int16_t NewSpeed){
+		static int16_t Buffer[4] = {0};
+    static uint8_t Index = 0;
+    static uint8_t Num = 0;
+    static int32_t Sum = 0;
+		
+		Sum -= Buffer[Index];
+		Buffer[Index] = NewSpeed;
+		Sum += Buffer[Index] ;
+		
+		Index++;	
+		if(Index ==4){Index=0;}
+		if(Num<4){
+		Num++;
+		}
+	
+		return (int16_t)(Sum/Num);
+
+}
+	float kp =0.60f;
+	float ki =0.15f;
 	float kd =0.0f;
 
 

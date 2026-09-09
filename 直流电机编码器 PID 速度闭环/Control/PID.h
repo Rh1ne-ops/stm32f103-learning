@@ -4,5 +4,5 @@
 
 void PID_Init(void);
 int16_t PID_Calc(int16_t TargetSpeed,int16_t AcutalSpeed);
-
+int16_t Speed_Filter(int16_t NewSpeed);
 #endif

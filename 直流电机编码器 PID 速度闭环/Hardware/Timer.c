@@ -37,10 +37,12 @@ void Speed_SetTarget(int16_t Target){
 }
 void TIM4_IRQHandler(void){
 		if(TIM_GetITStatus(TIM4,TIM_IT_Update)==SET){
-		
-			Speed = Encoder_Get();
+			int16_t Count=	Encoder_Get();
 			
-			Output = PID_Calc(TargetSpeed,Speed);
+			int16_t RawSpeed;
+			RawSpeed = (int16_t)((int32_t)Count * 600 / 1536);
+			Speed = Speed_Filter(RawSpeed);
+			Output = PID_Calc(TargetSpeed,RawSpeed);
 			Motor_SetSpeed(Output);
 			
 			TIM_ClearITPendingBit(TIM4,TIM_IT_Update);
@@ -52,7 +54,7 @@ return Output;
 
 
 int16_t Speed_Get(void){
-return Speed;
+return Speed ;
 }
 
 

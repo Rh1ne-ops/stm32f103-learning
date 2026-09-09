@@ -8,6 +8,7 @@
 #include "PID.h"
 #include "Serial.h"
 
+
 int16_t Target=0;
 uint16_t Count = 0;
 int main(void){
@@ -20,20 +21,24 @@ int main(void){
 	Timer_Init();
 
 	
-	Target =300;
+	Target =200;
 	
 	OLED_ShowString(1,1,"Speed:");
 	OLED_ShowString(2,1,"Target:");
 	OLED_ShowString(3,1,"Output:");
+	
+	OLED_ShowString(1,12,"RPM");
+	OLED_ShowString(2,12,"RPM");
+	OLED_ShowString(3,12,"%");
 
-//	Motor_SetSpeed(20);
+//	Motor_SetSpeed(30);
 	
 	
 	Speed_SetTarget(Target);
 	
 	while(1)    
 	{           
-		OLED_ShowSignedNum(2,9,Target,4);
+		OLED_ShowSignedNum(2,7,Target,4);
 		OLED_ShowSignedNum(1,7,Speed_Get(),4);
 		OLED_ShowSignedNum(3,7,Output_Get(),4);
 		
@@ -41,31 +46,50 @@ int main(void){
                   Target,
                   Speed_Get(),
                   Output_Get());
-		
+		Speed_SetTarget(Target);
 		  Count++;
 
-        /* 100ms × 50 = 5秒 */
+       
         if(Count >= 50)
-        {
+        {  
             Count = 0;
 
-            if(Target == 300)
+            if(Target == 200)
             {
-                Target = 500;
+                Target = 100;
             }
             else
             {
-                Target = 300;
+                Target = 200;
             }
 
             Speed_SetTarget(Target);
         }
 		
 		
-		Delay_ms(300);
+		Delay_ms(100);
     }
 
 	
+// OLED_Init();
+//    Motor_Init();
+//    Encoder_Init();
+
+//    TIM_SetCounter(TIM3, 0);
+
+//    OLED_ShowString(1, 1, "Count:");
+
+//    Motor_SetSpeed(20);   // 先低速试，太慢再改20、25
+
+//    while (1)
+//    {
+//        OLED_ShowSignedNum(
+//            2,
+//            1,
+//            (int16_t)TIM_GetCounter(TIM3),
+//            6
+//        );
+//    }
 }
 
 
