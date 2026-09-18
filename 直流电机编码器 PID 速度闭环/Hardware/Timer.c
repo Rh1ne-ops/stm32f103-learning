@@ -2,13 +2,15 @@
 #include "Encoder.h"
 #include "Motor.h"
 #include "PID.h"
+#include "Delay.h"
 
 static volatile int16_t TargetSpeed =0;
 static volatile int16_t Speed =0;
 static volatile int16_t Output =0;
+static uint8_t StallCount = 0;
 
 
-void Timer_Init(void){
+void Timer_Init(void){   //每0.1s进入一次中断读取数据并计算新的输出
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,ENABLE);
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseInitStructure;
@@ -42,8 +44,33 @@ void TIM4_IRQHandler(void){
 			int16_t RawSpeed;
 			RawSpeed = (int16_t)((int32_t)Count * 600 / 1536);
 			Speed = Speed_Filter(RawSpeed);
-			Output = PID_Calc(TargetSpeed,RawSpeed);
-			Motor_SetSpeed(Output);
+			Output = PID_Calc(TargetSpeed,RawSpeed);		
+//			RawSpeed=0;
+//			Output = 100;堵转测试的
+       if ((Output >= 90 || Output <= -90) &&
+            (RawSpeed <= 5 && RawSpeed >= -5))
+        {
+            StallCount++;
+        }
+        else
+        {
+            StallCount = 0;
+        }
+
+        if (StallCount >= 10)
+        {
+            TargetSpeed = 0;
+            Output = 0;
+            Motor_SetSpeed(0);
+            StallCount = 0;
+					//Delay_ms(500); 堵转测试
+					 
+					
+        }
+        else
+        {
+            Motor_SetSpeed(Output);
+        }
 			
 			TIM_ClearITPendingBit(TIM4,TIM_IT_Update);
 		}

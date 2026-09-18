@@ -727,6 +727,26 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\W25Q64_Ins.h</FilePath>
             </File>
+            <File>
+              <FileName>MySPI1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\MySPI1.c</FilePath>
+            </File>
+            <File>
+              <FileName>MySPI1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\MySPI1.h</FilePath>
+            </File>
+            <File>
+              <FileName>W25Q641.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\W25Q641.h</FilePath>
+            </File>
+            <File>
+              <FileName>W25Q641.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\W25Q641.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

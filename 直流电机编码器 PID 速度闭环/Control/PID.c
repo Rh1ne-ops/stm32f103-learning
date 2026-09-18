@@ -1,5 +1,6 @@
 #include "stm32f10x.h"                  // Device header
 
+//算法控制模块
 int16_t Speed_Filter(int16_t NewSpeed){
 		static int16_t Buffer[4] = {0};
     static uint8_t Index = 0;
